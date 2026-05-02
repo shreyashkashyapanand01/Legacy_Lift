@@ -14,7 +14,7 @@ class TestAgent:
         self.prompt_template = self._load_prompt()
 
     # ---------------------------
-    # 🔹 LOAD PROMPT
+    #  LOAD PROMPT
     # ---------------------------
     def _load_prompt(self):
         try:
@@ -29,7 +29,7 @@ class TestAgent:
             raise RuntimeError("Prompt loading failed")
 
     # ---------------------------
-    # 🔹 BUILD PROMPT
+    #  BUILD PROMPT
     # ---------------------------
     def _build_prompt(self, state: AgentState):
         code = ""
@@ -42,7 +42,7 @@ class TestAgent:
         return self.prompt_template.format(code=code)
 
     # ---------------------------
-    # 🔹 SAFE PARSE
+    #  SAFE PARSE
     # ---------------------------
     def _safe_parse(self, text: str) -> TestCases:
         import json
@@ -64,7 +64,7 @@ class TestAgent:
             )
 
     # ---------------------------
-    # 🚀 MAIN RUN
+    #  MAIN RUN
     # ---------------------------
     def run(self, state: AgentState) -> AgentState:
         try:

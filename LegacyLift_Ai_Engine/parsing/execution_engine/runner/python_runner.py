@@ -16,13 +16,13 @@ class PythonRunner:
 
         try:
             # ---------------------------
-            # 🔹 CREATE FILE
+            #  CREATE FILE
             # ---------------------------
             full_code = self._build_python_code(code, test_cases)
             file_path = workspace.create_file("runner.py", full_code)
 
             # ---------------------------
-            # 🐳 RUN INSIDE DOCKER
+            #  RUN INSIDE DOCKER
             # ---------------------------
             stdout, stderr = docker.run_python(file_path)
             print("RUNNING INSIDE DOCKER")
@@ -33,7 +33,7 @@ class PythonRunner:
             output_lines = stdout.strip().split("\n") if stdout else []
 
             # ---------------------------
-            # 🧪 MATCH OUTPUTS
+            #  MATCH OUTPUTS
             # ---------------------------
             for i, test in enumerate(test_cases):
                 results.append(self._evaluate_output(test, output_lines, i))
@@ -48,7 +48,7 @@ class PythonRunner:
             workspace.cleanup()
 
     # ---------------------------
-    # 🧠 BUILD PYTHON FILE
+    #  BUILD PYTHON FILE
     # ---------------------------
     def _build_python_code(self, user_code, test_cases):
 
@@ -82,7 +82,7 @@ if __name__ == "__main__":
 """
 
     # ---------------------------
-    # 🔍 OUTPUT EVALUATION
+    #  OUTPUT EVALUATION
     # ---------------------------
     def _evaluate_output(self, test, outputs, index):
 

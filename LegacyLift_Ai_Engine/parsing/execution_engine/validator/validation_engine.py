@@ -15,7 +15,7 @@ class ValidationEngine:
         self.java_runner = JavaRunner()
 
     # ---------------------------
-    # 🚀 MAIN VALIDATION
+    #  MAIN VALIDATION
     # ---------------------------
     def validate(
         self,
@@ -26,7 +26,7 @@ class ValidationEngine:
     ):
         try:
             # ---------------------------
-            # 🧪 PARSE TESTS
+            #  PARSE TESTS
             # ---------------------------
             parsed_tests = TestInjector.parse_tests(tests)
 
@@ -34,7 +34,7 @@ class ValidationEngine:
                 return self._error("No valid test cases")
 
             # ---------------------------
-            # 🏃 SELECT RUNNER
+            #  SELECT RUNNER
             # ---------------------------
             runner = self._get_runner(language)
 
@@ -42,17 +42,17 @@ class ValidationEngine:
                 return self._error(f"Unsupported language: {language}")
 
             # ---------------------------
-            # ▶ RUN ORIGINAL
+            # RUN ORIGINAL
             # ---------------------------
             original_results = runner.run(original_code, parsed_tests)
 
             # ---------------------------
-            # ▶ RUN REFACTORED
+            #  RUN REFACTORED
             # ---------------------------
             refactored_results = runner.run(refactored_code, parsed_tests)
 
             # ---------------------------
-            # ⚖️ COMPARE
+            #  COMPARE
             # ---------------------------
             comparison = OutputComparator.compare(
                 original_results,
@@ -60,7 +60,7 @@ class ValidationEngine:
             )
 
             # ---------------------------
-            # 📤 FINAL RESPONSE
+            #  FINAL RESPONSE
             # ---------------------------
             return {
                 "status": comparison["status"],
@@ -77,7 +77,7 @@ class ValidationEngine:
             return self._error("Validation execution failed")
 
     # ---------------------------
-    # 🔍 RUNNER SELECTOR
+    #  RUNNER SELECTOR
     # ---------------------------
     def _get_runner(self, language: str):
         language = (language or "").lower()
@@ -90,7 +90,7 @@ class ValidationEngine:
         return None
 
     # ---------------------------
-    # ❌ ERROR HANDLER
+    #  ERROR HANDLER
     # ---------------------------
     def _error(self, message: str):
         return {

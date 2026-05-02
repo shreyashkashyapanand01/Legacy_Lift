@@ -14,13 +14,13 @@ job_id = str(uuid.uuid4())
 try:
     logger.info(f"Starting job: {job_id}")
 
-    # 🔥 Step 1: Save zip to workspace
+    #  Step 1: Save zip to workspace
     saved_zip = save_input_zip(zip_path, job_id)
 
-    # 🔥 Step 2: Extract
+    #  Step 2: Extract
     folder_path = extract_zip(saved_zip, job_id)
 
-    # 🔥 Step 3: Scan
+    #  Step 3: Scan
     result = scan_project(folder_path)
 
     for file in result:

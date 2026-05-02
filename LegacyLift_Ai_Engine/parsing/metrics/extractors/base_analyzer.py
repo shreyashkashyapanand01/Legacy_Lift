@@ -20,7 +20,7 @@ class BaseAnalyzer:
         return code
 
     # ---------------------------
-    # 📏 SPLIT LINES
+    #  SPLIT LINES
     # ---------------------------
     @staticmethod
     def get_lines(code: str):
@@ -28,7 +28,7 @@ class BaseAnalyzer:
         return [line for line in code.split("\n") if line.strip()]
 
     # ---------------------------
-    # 🔤 TOKEN EXTRACTION
+    #  TOKEN EXTRACTION
     # ---------------------------
     @staticmethod
     def tokenize(code: str):
@@ -38,21 +38,8 @@ class BaseAnalyzer:
         return re.findall(r"[A-Za-z_]\w*|\d+|[^\sA-Za-z_]", code)
 
     # ---------------------------
-    # 🧠 OPERATOR / OPERAND SPLIT
+    #  OPERATOR / OPERAND SPLIT
     # ---------------------------
-    @staticmethod
-    # def get_operators_operands(tokens):
-    #     operators = []
-    #     operands = []
-
-    #     for token in tokens:
-    #         if re.match(r"[+\-*/=<>!&|%^]+", token):
-    #             operators.append(token)
-    #         elif re.match(r"[A-Za-z_]\w+|\d+", token):
-    #             operands.append(token)
-
-    #     return operators, operands
-    
     
     
     @staticmethod
@@ -87,7 +74,7 @@ class BaseAnalyzer:
         return operators, operands
 
     # ---------------------------
-    # 🔍 DECISION KEYWORDS (GENERIC)
+    #  DECISION KEYWORDS (GENERIC)
     # ---------------------------
     @staticmethod
     def count_decision_points(code: str, keywords: list):

@@ -57,7 +57,7 @@ class JavaLOC:
             if code_part in ["{", "}", ";"]:
                 continue
 
-            # ✅ Count valid line
+            #   Count valid line
             total_lines += 1
 
             if code_part:

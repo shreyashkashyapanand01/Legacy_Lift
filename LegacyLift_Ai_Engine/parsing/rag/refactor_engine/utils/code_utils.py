@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 class CodeUtils:
 
     # ---------------------------
-    # 🔍 LANGUAGE DETECTION
+    #   LANGUAGE DETECTION
     # ---------------------------
     @staticmethod
     def detect_language(code: str) -> str:
@@ -20,7 +20,7 @@ class CodeUtils:
 
             code_lower = code.lower()
 
-            # 🔹 JAVA DETECTION
+            #   JAVA DETECTION
             if (
                 "public class" in code_lower or
                 "public static void main" in code_lower or
@@ -28,7 +28,7 @@ class CodeUtils:
             ):
                 return "java"
 
-            # 🔹 PYTHON DETECTION
+            #   PYTHON DETECTION
             if (
                 "def " in code_lower or
                 "import " in code_lower or
@@ -43,7 +43,7 @@ class CodeUtils:
             return "unknown"
 
     # ---------------------------
-    # 🎨 FORMATTER ROUTER
+    #  FORMATTER ROUTER
     # ---------------------------
     @staticmethod
     def format_code(code: str, language: str):

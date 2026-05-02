@@ -26,7 +26,7 @@ try:
     # Module 2 step 1
     documents = build_documents(parsed_output, root_path)
 
-    # 🔥 Chunking
+    #  Chunking
     chunks = chunk_documents(documents, root_path)
 
     print("\n=== CHUNKS ===\n")

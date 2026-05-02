@@ -6,7 +6,7 @@ logger = logging.getLogger(__name__)
 class OutputComparator:
 
     # ---------------------------
-    # 🚀 MAIN COMPARATOR
+    #  MAIN COMPARATOR
     # ---------------------------
     @staticmethod
     def compare(original_results: list, refactored_results: list):
@@ -36,7 +36,7 @@ class OutputComparator:
                     })
 
             # ---------------------------
-            # 📊 FINAL STATUS
+            #  FINAL STATUS
             # ---------------------------
             status = "PASS" if len(failed_cases) == 0 else "FAIL"
 
@@ -64,7 +64,7 @@ class OutputComparator:
             }
 
     # ---------------------------
-    # 🔍 SINGLE TEST COMPARISON
+    #  SINGLE TEST COMPARISON
     # ---------------------------
     @staticmethod
     def _compare_single(orig: dict, ref: dict):
@@ -97,7 +97,7 @@ class OutputComparator:
             }
 
         # ---------------------------
-        # REFACTOR BROKE WORKING CODE ❌
+        # REFACTOR BROKE WORKING CODE 
         # ---------------------------
         if orig["status"] == "PASS" and ref["status"] != "PASS":
             return {
@@ -114,7 +114,7 @@ class OutputComparator:
         }
 
     # ---------------------------
-    # 🧠 SUMMARY BUILDER
+    #  SUMMARY BUILDER
     # ---------------------------
     @staticmethod
     def _build_summary(total, passed, improved, failed_cases):

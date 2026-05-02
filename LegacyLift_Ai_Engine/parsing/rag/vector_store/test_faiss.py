@@ -34,17 +34,17 @@ try:
     texts = [c["text"] for c in chunks]
     metadata = chunks
 
-    # 🔥 Embedding
+    #   Embedding
     embedder = Embedder()
     vectors = embedder.embed_documents(texts)
 
-    # 🔥 FAISS
+    #   FAISS
     dim = vectors.shape[1]
     store = FaissStore(dim)
 
     store.add(vectors, metadata)
 
-    # 🔍 Test search
+    #   Test search
     query = "function to add two numbers"
     q_vec = embedder.embed_query(query)
 

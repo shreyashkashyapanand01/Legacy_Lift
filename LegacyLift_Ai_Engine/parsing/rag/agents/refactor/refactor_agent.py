@@ -14,7 +14,7 @@ class RefactorAgent:
         self.prompt_template = self._load_prompt()
 
     # ---------------------------
-    # 🔹 LOAD PROMPT
+    #   LOAD PROMPT
     # ---------------------------
     def _load_prompt(self):
         try:
@@ -29,7 +29,7 @@ class RefactorAgent:
             raise RuntimeError("Prompt loading failed")
 
     # ---------------------------
-    # 🔹 BUILD PROMPT
+    #   BUILD PROMPT
     # ---------------------------
     def _build_prompt(self, state: AgentState):
         return self.prompt_template.format(
@@ -39,7 +39,7 @@ class RefactorAgent:
         )
 
     # ---------------------------
-    # 🔹 JSON CLEANER (NEW)
+    #   JSON CLEANER (NEW)
     # ---------------------------
     def _clean_json(self, text: str) -> str:
         import re
@@ -58,12 +58,12 @@ class RefactorAgent:
         return text
 
     # ---------------------------
-    # 🔹 SAFE PARSE (FIXED)
+    #   SAFE PARSE (FIXED)
     # ---------------------------
     def _safe_parse(self, text: str) -> Refactor:
         import json
 
-        # 🔹 First attempt
+        #   First attempt
         try:
             cleaned = self._clean_json(text)
             data = json.loads(cleaned)

@@ -31,7 +31,7 @@ try:
 
     texts = [c["text"] for c in chunks]
 
-    # 🔥 Embedding
+    #   Embedding
     embedder = Embedder()
     vectors = embedder.embed_documents(texts)
 

@@ -12,18 +12,18 @@ class JavaFormatter:
             if not code:
                 return ""
 
-            # 🔹 Fix operators
+            #   Fix operators
             code = re.sub(r'(\w)([+\-*/=])(\w)', r'\1 \2 \3', code)
 
-            # 🔹 Add line breaks
+            #   Add line breaks
             code = code.replace("{", "{\n")
             code = code.replace("}", "\n}")
             code = code.replace(";", ";\n")
 
-            # 🔹 Clean extra lines
+            #   Clean extra lines
             code = re.sub(r"\n\s*\n+", "\n", code)
 
-            # 🔹 Indentation
+            #   Indentation
             lines = code.split("\n")
             formatted_lines = []
 

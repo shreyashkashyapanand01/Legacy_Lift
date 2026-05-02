@@ -12,19 +12,19 @@ class AgentService:
         self.graph = build_graph()
 
     # ---------------------------
-    # 🚀 RUN AGENT PIPELINE
+    #  RUN AGENT PIPELINE
     # ---------------------------
     def run(self, query: str, context: str) -> AgentState:
         try:
             logger.info("Starting Agent Pipeline")
 
-            # 🔹 Initialize state
+            #  Initialize state
             state = AgentState(
                 query=query,
                 context=context
             )
 
-            # 🔹 Run LangGraph
+            #  Run LangGraph
             final_state = self.graph.invoke(state)
 
             logger.info("Agent Pipeline Completed")

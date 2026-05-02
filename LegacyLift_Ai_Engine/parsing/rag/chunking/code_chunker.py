@@ -30,14 +30,14 @@ def chunk_documents(documents: List[Dict], root_path: str) -> List[Dict]:
 
             line_count = text.count("\n") + 1
 
-            # 🔥 Strategy 1: Expand small chunks
+            #  Strategy 1: Expand small chunks
             if line_count < MIN_LINES:
                 expanded_text = _expand_chunk(metadata, root_path)
 
                 if expanded_text:
                     doc["text"] = expanded_text
 
-            # 🔥 Strategy 2: Limit max size
+            #  Strategy 2: Limit max size
             doc["text"] = _limit_chunk_size(doc["text"])
 
             chunks.append(doc)

@@ -40,7 +40,7 @@ class LLMClient:
             raise ValueError(f"Unsupported LLM provider: {self.provider}")
 
     # ---------------------------
-    # 🔥 MAIN GENERATE FUNCTION
+    #  MAIN GENERATE FUNCTION
     # ---------------------------
     def generate(self, prompt: str, temperature: float = 0.2, max_tokens: int = 1000) -> str:
         """
@@ -64,7 +64,7 @@ class LLMClient:
         raise RuntimeError("LLM failed after retries")
 
     # ---------------------------
-    # 🔹 OPENAI
+    #  OPENAI
     # ---------------------------
     def _openai_generate(self, prompt, temperature, max_tokens):
         response = self.client.chat.completions.create(
@@ -80,7 +80,7 @@ class LLMClient:
         return response.choices[0].message.content
 
     # ---------------------------
-    # 🔹 GROQ
+    #  GROQ
     # ---------------------------
     def _groq_generate(self, prompt, temperature, max_tokens):
         response = self.client.chat.completions.create(
@@ -96,7 +96,7 @@ class LLMClient:
         return response.choices[0].message.content
 
     # ---------------------------
-    # 🔹 GEMINI
+    #  GEMINI
     # ---------------------------
     def _gemini_generate(self, prompt):
         response = self.client.generate_content(prompt)

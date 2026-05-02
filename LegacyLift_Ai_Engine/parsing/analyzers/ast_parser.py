@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 
 
 # ---------------------------
-# 🐍 PYTHON PARSER (GOOD)
+# PYTHON PARSER
 # ---------------------------
 def parse_python_file(file_path: str, base_path: str) -> List[Dict]:
     functions = []
@@ -58,7 +58,7 @@ def parse_python_file(file_path: str, base_path: str) -> List[Dict]:
 
 
 # ---------------------------
-# ☕ JAVA HELPER (🔥 NEW)
+# JAVA HELPER
 # ---------------------------
 def _extract_java_method(lines, start_line):
     """
@@ -85,7 +85,7 @@ def _extract_java_method(lines, start_line):
 
 
 # ---------------------------
-# ☕ JAVA PARSER (FIXED)
+#  JAVA PARSER 
 # ---------------------------
 def parse_java_file(file_path: str, base_path: str) -> List[Dict]:
     functions = []
@@ -105,7 +105,7 @@ def parse_java_file(file_path: str, base_path: str) -> List[Dict]:
                 line_no = node.position.line if node.position else None
                 start = (line_no - 1) if line_no else 0
 
-                # ✅ FIXED extraction (NO MORE 10 lines)
+                
                 code_snippet = _extract_java_method(lines, start)
 
                 function_data = {

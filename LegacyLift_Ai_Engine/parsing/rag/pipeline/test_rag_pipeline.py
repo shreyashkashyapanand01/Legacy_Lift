@@ -20,13 +20,13 @@ try:
     # Step 2: RAG pipeline
     pipeline = RAGPipeline(index_dir=f"workspace/{job_id}/index")
 
-    # 🔥 Build index
+    #   Build index
     pipeline.build_index(root_path)
 
-    # 🔥 Load index
+    #   Load index
     pipeline.load_index()
 
-    # 🔍 Query
+    #   Query
     response = pipeline.query("function to add numbers", top_k=2)
 
     print("\n=== RETRIEVED RESULTS ===\n")

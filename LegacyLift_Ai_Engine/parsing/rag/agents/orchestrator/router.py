@@ -18,12 +18,12 @@ def route_after_validation(state: AgentState) -> str:
         logger.warning("No validation found, ending flow")
         return "end"
 
-    # 🔥 SUCCESS CASE
+    #  SUCCESS CASE
     if state.validation.is_valid:
         logger.info("Validation passed -> ending flow")
         return "end"
 
-    # 🔥 FAILURE CASE → retry
+    #  FAILURE CASE → retry
     retries = getattr(state, "retry_count", 0)
 
     if retries < MAX_RETRIES:
@@ -34,7 +34,7 @@ def route_after_validation(state: AgentState) -> str:
 
         return "refactor"
 
-    # 🔥 MAX RETRIES HIT
+    #  MAX RETRIES HIT
     logger.error("Max retries reached -> ending flow")
 
     return "end"

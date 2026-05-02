@@ -15,7 +15,7 @@ class AnalyzerAgent:
         self.prompt_template = self._load_prompt()
 
     # ---------------------------
-    # 🔹 LOAD PROMPT
+    #  LOAD PROMPT
     # ---------------------------
     def _load_prompt(self) -> str:
         try:
@@ -30,7 +30,7 @@ class AnalyzerAgent:
             raise RuntimeError("Prompt loading failed")
 
     # ---------------------------
-    # 🔹 BUILD PROMPT
+    #  BUILD PROMPT
     # ---------------------------
     def _build_prompt(self, state: AgentState) -> str:
         return self.prompt_template.format(
@@ -39,7 +39,7 @@ class AnalyzerAgent:
         )
 
     # ---------------------------
-    # 🔹 SAFE JSON PARSE
+    #  SAFE JSON PARSE
     # ---------------------------
     def _safe_parse(self, text: str) -> Analysis:
         import json
@@ -63,7 +63,7 @@ class AnalyzerAgent:
             )
 
     # ---------------------------
-    # 🚀 MAIN EXECUTION
+    #  MAIN EXECUTION
     # ---------------------------
     def run(self, state: AgentState) -> AgentState:
         try:
@@ -75,7 +75,7 @@ class AnalyzerAgent:
 
             analysis = self._safe_parse(response)
 
-            # 🔥 Update state
+            #  Update state
             state.analysis = analysis
 
             return state

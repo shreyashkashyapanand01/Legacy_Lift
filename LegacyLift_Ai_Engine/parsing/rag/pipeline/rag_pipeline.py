@@ -55,7 +55,7 @@ class RAGPipeline:
             self.store = FaissStore(dim)
             self.store.add(vectors, chunks)
 
-            # ✅ FIX: save FULL chunk data (not metadata)
+            #   FIX: save FULL chunk data (not metadata)
             self.index_manager.save(self.store.index, self.store.data)
 
             logger.info("Index built and saved successfully")
@@ -80,7 +80,7 @@ class RAGPipeline:
             self.store = FaissStore(index.d)
             self.store.index = index
 
-            # ✅ FIX: assign to data (not metadata)
+            #  assign to data (not metadata)
             self.store.data = data
 
             self.retriever = Retriever(self.store, self.embedder)

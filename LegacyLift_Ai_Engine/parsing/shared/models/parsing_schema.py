@@ -13,7 +13,7 @@ class FunctionSchema(BaseModel):
     end_line: int
     type: str
     language: str
-    code: str  # 🔥 important for RAG
+    code: str  #   important for RAG
 
 
 # ---------------------------

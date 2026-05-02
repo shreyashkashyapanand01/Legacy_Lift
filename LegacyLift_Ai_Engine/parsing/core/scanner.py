@@ -7,7 +7,7 @@ from parsing.utils.path_utils import get_relative_path
 
 logger = logging.getLogger(__name__)
 
-# 🚫 Ignore directories
+#  Ignore directories
 IGNORED_DIRS = {
     ".git",
     "__pycache__",
@@ -37,7 +37,7 @@ def scan_project(root_path: str) -> List[Dict]:
     try:
         for current_root, dirs, files in os.walk(root_path):
 
-            # 🔥 Remove ignored directories
+            #  Remove ignored directories
             dirs[:] = [d for d in dirs if d not in IGNORED_DIRS]
 
             for file in files:
@@ -48,7 +48,7 @@ def scan_project(root_path: str) -> List[Dict]:
 
                 full_path = os.path.join(current_root, file)
 
-                # ✅ Use centralized path logic
+                #  Use centralized path logic
                 normalized_path = get_relative_path(full_path, root_path)
 
                 file_data = {

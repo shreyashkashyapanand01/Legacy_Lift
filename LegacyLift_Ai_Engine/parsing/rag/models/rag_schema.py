@@ -3,7 +3,7 @@ from typing import List, Optional, Dict
 
 
 # ---------------------------
-# 🔹 RETRIEVAL
+#   RETRIEVAL
 # ---------------------------
 class ResultItem(BaseModel):
     score: float
@@ -14,7 +14,7 @@ class ResultItem(BaseModel):
 
 
 # ---------------------------
-# 🔹 AGENT OUTPUTS
+#   AGENT OUTPUTS
 # ---------------------------
 class AnalysisResponse(BaseModel):
     issues: List[str]
@@ -41,7 +41,7 @@ class ValidationResponse(BaseModel):
 
 
 # ---------------------------
-# 🔥 MODULE 4 (REFRACTOR ENGINE)
+#   MODULE 4 (REFRACTOR ENGINE)
 # ---------------------------
 class DiffItem(BaseModel):
     from_line: str
@@ -71,7 +71,7 @@ class RefactorEngineResponse(BaseModel):
 
 
 # ---------------------------
-# 🔥 MODULE 5 (EXECUTION ENGINE)
+#   MODULE 5 (EXECUTION ENGINE)
 # ---------------------------
 class ExecutionResultItem(BaseModel):
     status: str
@@ -93,7 +93,7 @@ class ExecutionValidationResponse(BaseModel):
 
 
 # ---------------------------
-# 🔥 MODULE 6 (METRICS ENGINE)
+#   MODULE 6 (METRICS ENGINE)
 # ---------------------------
 class HalsteadResponse(BaseModel):
     volume: float
@@ -142,7 +142,7 @@ class MetricsResponse(BaseModel):
 
 
 # ---------------------------
-# 🔹 FINAL API RESPONSE
+#   FINAL API RESPONSE
 # ---------------------------
 class RAGResponse(BaseModel):
     results: List[ResultItem]
@@ -154,7 +154,7 @@ class RAGResponse(BaseModel):
     refactor_engine: Optional[RefactorEngineResponse] = None
     execution_validation: Optional[ExecutionValidationResponse] = None
 
-    # 🔥 NEW (MODULE 6)
+    #   NEW (MODULE 6)
     metrics: Optional[MetricsResponse] = None
 
     tests: Optional[TestResponse] = None

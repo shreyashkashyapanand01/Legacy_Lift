@@ -15,12 +15,12 @@ class Embedder:
         try:
             logger.info(f"Loading embedding model: {EMBEDDING_MODEL}")
 
-            # 🔥 Authenticate once (no deprecated usage)
+            #   Authenticate once (no deprecated usage)
             if HF_TOKEN:
                 login(token=HF_TOKEN)
                 logger.info("HF token authenticated")
 
-            # 🔥 Load model (no token passed here)
+            #   Load model (no token passed here)
             self.model = SentenceTransformer(
                 EMBEDDING_MODEL,
                 device=DEVICE
@@ -44,7 +44,7 @@ class Embedder:
                 texts,
                 batch_size=32,
                 show_progress_bar=True,
-                normalize_embeddings=True  # 🔥 critical for cosine similarity
+                normalize_embeddings=True  #   critical for cosine similarity
             )
 
             return embeddings

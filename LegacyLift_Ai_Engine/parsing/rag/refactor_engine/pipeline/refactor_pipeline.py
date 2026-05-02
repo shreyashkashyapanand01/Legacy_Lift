@@ -15,39 +15,39 @@ class RefactorPipeline:
     def run(original_code: str, refactored_code: str):
         try:
             # ---------------------------
-            # 🧹 CLEAN
+            #  CLEAN
             # ---------------------------
             clean_original = CodeCleaner.clean(original_code)
             clean_refactored = CodeCleaner.clean(refactored_code)
 
             # ---------------------------
-            # 🔍 DETECT LANGUAGE
+            #   DETECT LANGUAGE
             # ---------------------------
             language = CodeUtils.detect_language(clean_refactored or clean_original)
 
             # ---------------------------
-            # 🎨 FORMAT
+            #  FORMAT
             # ---------------------------
             formatted_original, _ = CodeUtils.format_code(clean_original, language)
             formatted_refactored, formatting_applied = CodeUtils.format_code(clean_refactored, language)
 
             # ---------------------------
-            # 🔒 SYNTAX VALIDATION (🔥 NEW)
+            #  SYNTAX VALIDATION (  NEW)
             # ---------------------------
             validation = SyntaxValidator.validate(formatted_refactored, language)
 
             # ---------------------------
-            # 🔍 DIFF
+            #   DIFF
             # ---------------------------
             diff = DiffGenerator.generate(formatted_original, formatted_refactored)
 
             # ---------------------------
-            # 🧠 EXPLANATION
+            #  EXPLANATION
             # ---------------------------
             explanations = ExplanationBuilder.build(diff)
 
             # ---------------------------
-            # 📤 FINAL OUTPUT
+            #  FINAL OUTPUT
             # ---------------------------
             return {
                 "language": language,
@@ -56,7 +56,7 @@ class RefactorPipeline:
                 "refactored_code": formatted_refactored,
                 "diff": diff,
                 "explanations": explanations,
-                "validation": validation   # 🔥 NEW
+                "validation": validation   #   NEW
             }
 
         except Exception:

@@ -6,7 +6,7 @@ import shutil
 
 logger = logging.getLogger(__name__)
 
-# 🔥 Base workspace directory
+#  Base workspace directory
 WORKSPACE_DIR = "workspace"
 
 
@@ -22,7 +22,7 @@ def extract_zip(zip_path: str, job_id: str) -> str:
         logger.error(f"Invalid zip file: {zip_path}")
         raise ValueError("Invalid zip file")
 
-    # 🔥 Create workspace paths
+    #  Create workspace paths
     job_dir = os.path.join(WORKSPACE_DIR, job_id)
     extract_dir = os.path.join(job_dir, "extracted")
 
@@ -36,7 +36,7 @@ def extract_zip(zip_path: str, job_id: str) -> str:
 
         logger.info("Extraction completed")
 
-        # 🔥 Detect root folder
+        #  Detect root folder
         root_path = _get_project_root(extract_dir)
 
         logger.info(f"Detected project root: {root_path}")

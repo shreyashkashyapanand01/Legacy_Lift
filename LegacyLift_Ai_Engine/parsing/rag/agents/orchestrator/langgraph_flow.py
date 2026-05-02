@@ -7,15 +7,15 @@ from parsing.rag.agents.test_generator.test_agent import TestAgent
 from parsing.rag.agents.validator.validator_agent import ValidatorAgent
 from parsing.rag.agents.orchestrator.state_manager import StateManager
 
-# 🔥 Router
+#  Router
 from parsing.rag.agents.orchestrator.router import route_after_validation
 
-# 🔥 NEW: Tracer
+#  Tracer
 from parsing.rag.agents.utils.tracer import Tracer
 
 
 # ---------------------------
-# 🔹 AGENTS INIT
+#  AGENTS INIT
 # ---------------------------
 analyzer = AnalyzerAgent()
 refactor = RefactorAgent()
@@ -24,7 +24,7 @@ validator = ValidatorAgent()
 
 
 # ---------------------------
-# 🔹 NODE FUNCTIONS (WITH TRACING 🔥)
+#  NODE FUNCTIONS 
 # ---------------------------
 def analyze_node(state: AgentState):
     state = StateManager.init_state(state)
@@ -54,7 +54,7 @@ def validate_node(state: AgentState):
     Tracer.log_step("validate", state)
     return state
 # ---------------------------
-# 🔹 BUILD GRAPH (ROUTER + TRACER 🔥)
+#  BUILD GRAPH (ROUTER + TRACER )
 # ---------------------------
 def build_graph():
 
@@ -74,7 +74,7 @@ def build_graph():
     builder.add_edge("refactor", "test")
     builder.add_edge("test", "validate")
 
-    # 🔥 CONDITIONAL ROUTING
+    #  CONDITIONAL ROUTING
     builder.add_conditional_edges(
         "validate",
         route_after_validation,

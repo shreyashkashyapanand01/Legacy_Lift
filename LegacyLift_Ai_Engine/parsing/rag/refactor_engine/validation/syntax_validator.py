@@ -40,7 +40,7 @@ class SyntaxValidator:
     def _validate_java(code: str):
         errors = []
 
-        # 🔹 check semicolons
+        #   check semicolons
         lines = code.split("\n")
         for i, line in enumerate(lines):
             line = line.strip()
@@ -54,7 +54,7 @@ class SyntaxValidator:
             ):
                 errors.append(f"Line {i+1}: Missing semicolon")
 
-        # 🔹 bracket balance
+        #   bracket balance
         if code.count("{") != code.count("}"):
             errors.append("Mismatched braces")
 

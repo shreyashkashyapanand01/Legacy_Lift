@@ -6,14 +6,14 @@ logger = logging.getLogger(__name__)
 
 def clean_response(response: str):
     try:
-        # 🔥 Try direct JSON parse
+        #   Try direct JSON parse
         return json.loads(response)
 
     except Exception:
         logger.warning("Raw LLM response not valid JSON, attempting cleanup")
 
         try:
-            # 🔥 Extract JSON block manually
+            #   Extract JSON block manually
             start = response.find("{")
             end = response.rfind("}") + 1
 

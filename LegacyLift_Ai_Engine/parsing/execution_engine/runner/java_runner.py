@@ -21,7 +21,7 @@ class JavaRunner:
             )
 
             # ---------------------------
-            # 🐳 RUN INSIDE DOCKER
+            #  RUN INSIDE DOCKER
             # ---------------------------
             stdout, stderr = docker.run_java(java_file)
             print("RUNNING INSIDE DOCKER")
@@ -32,7 +32,7 @@ class JavaRunner:
             output_lines = stdout.strip().split("\n") if stdout else []
 
             # ---------------------------
-            # 🧪 MATCH OUTPUTS
+            #  MATCH OUTPUTS
             # ---------------------------
             for i, test in enumerate(test_cases):
                 results.append(self._evaluate_output(test, output_lines, i))
@@ -47,7 +47,7 @@ class JavaRunner:
             workspace.cleanup()
 
     # ---------------------------
-    # 🧠 BUILD JAVA FILE
+    #  BUILD JAVA FILE
     # ---------------------------
     def _build_java_code(self, user_code, test_cases):
 
@@ -88,7 +88,7 @@ public class Runner {{
 """
 
     # ---------------------------
-    # 🔍 OUTPUT EVALUATION
+    #  OUTPUT EVALUATION
     # ---------------------------
     def _evaluate_output(self, test, outputs, index):
 

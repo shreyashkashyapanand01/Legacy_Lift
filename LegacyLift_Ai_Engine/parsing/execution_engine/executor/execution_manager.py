@@ -17,7 +17,7 @@ class ExecutionManager:
         self.java_runner = JavaRunner()
 
     # ---------------------------
-    # 🚀 MAIN EXECUTION PIPELINE
+    #  MAIN EXECUTION PIPELINE
     # ---------------------------
     def execute(
         self,
@@ -31,12 +31,12 @@ class ExecutionManager:
             logger.info("Starting execution validation pipeline")
 
             # ---------------------------
-            # 🧪 BUILD TEST CASES
+            #  BUILD TEST CASES
             # ---------------------------
             test_cases = TestInjector.parse_tests(tests)
 
             # ---------------------------
-            # 🏃 SELECT RUNNER
+            #  SELECT RUNNER
             # ---------------------------
             runner = self._get_runner(language)
 
@@ -44,17 +44,17 @@ class ExecutionManager:
                 raise ValueError(f"Unsupported language: {language}")
 
             # ---------------------------
-            # ▶ RUN ORIGINAL CODE
+            #  RUN ORIGINAL CODE
             # ---------------------------
             original_results = runner.run(original_code, test_cases)
 
             # ---------------------------
-            # ▶ RUN REFACTORED CODE
+            #  RUN REFACTORED CODE
             # ---------------------------
             refactored_results = runner.run(refactored_code, test_cases)
 
             # ---------------------------
-            # ⚖️ COMPARE OUTPUTS
+            #  COMPARE OUTPUTS
             # ---------------------------
             comparison = OutputComparator.compare(
                 original_results,
@@ -62,7 +62,7 @@ class ExecutionManager:
             )
 
             # ---------------------------
-            # ✅ FINAL VALIDATION
+            #  FINAL VALIDATION
             # ---------------------------
             validation_result = ValidationEngine.evaluate(comparison)
 
@@ -88,7 +88,7 @@ class ExecutionManager:
             }
 
     # ---------------------------
-    # 🔧 RUNNER SELECTOR
+    #  RUNNER SELECTOR
     # ---------------------------
     def _get_runner(self, language: str):
         language = language.lower()

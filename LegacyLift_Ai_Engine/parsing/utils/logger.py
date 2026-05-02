@@ -11,14 +11,14 @@ def setup_logging():
     Setup application-wide logging
     """
 
-    # 🔒 Ensure logs directory exists
+    #  Ensure logs directory exists
     os.makedirs(LOG_DIR, exist_ok=True)
 
-    # 🔥 Unique log file per run
+    #   Unique log file per run
     log_filename = datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + ".log"
     log_path = os.path.join(LOG_DIR, log_filename)
 
-    # 🎯 Create logger
+    #  Create logger
     logger = logging.getLogger()
     logger.setLevel(logging.INFO)
 
@@ -26,17 +26,17 @@ def setup_logging():
     if logger.hasHandlers():
         logger.handlers.clear()
 
-    # 📁 File handler (with rotation)
+    #  File handler (with rotation)
     file_handler = RotatingFileHandler(
         log_path,
         maxBytes=5 * 1024 * 1024,  # 5MB
         backupCount=3
     )
 
-    # 🖥️ Console handler
+    #  Console handler
     console_handler = logging.StreamHandler()
 
-    # 🎨 Formatter
+    #  Formatter
     formatter = logging.Formatter(
         "%(asctime)s | %(levelname)-8s | %(name)s | %(message)s"
     )
@@ -44,7 +44,7 @@ def setup_logging():
     file_handler.setFormatter(formatter)
     console_handler.setFormatter(formatter)
 
-    # 🔗 Attach handlers
+    #  Attach handlers
     logger.addHandler(file_handler)
     logger.addHandler(console_handler)
 

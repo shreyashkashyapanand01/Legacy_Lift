@@ -23,7 +23,7 @@ def extract_python_dependencies(file_path: str, base_path: str) -> List[Dict]:
 
         for node in ast.walk(tree):
 
-            # ✅ import math
+            # import math
             if isinstance(node, ast.Import):
                 for alias in node.names:
                     logger.debug(f"Python import found: {alias.name}")
@@ -35,9 +35,9 @@ def extract_python_dependencies(file_path: str, base_path: str) -> List[Dict]:
                         "language": "python"
                     })
 
-            # ✅ from os import path
+            #  from os import path
             elif isinstance(node, ast.ImportFrom):
-                if node.module:   # 🔥 FIX: avoid empty module
+                if node.module:   #   FIX: avoid empty module
                     logger.debug(f"Python from-import found: {node.module}")
 
                     dependencies.append({
@@ -74,7 +74,7 @@ def extract_java_dependencies(file_path: str, base_path: str) -> List[Dict]:
 
         relative_path = os.path.relpath(file_path, base_path).replace("\\", "/")
 
-        # 🔥 SAFE CHECK
+        # SAFE CHECK
         if hasattr(tree, "imports") and tree.imports:
             for imp in tree.imports:
                 logger.debug(f"Java import found: {imp.path}")

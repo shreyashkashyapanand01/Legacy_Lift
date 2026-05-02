@@ -3,7 +3,7 @@ from typing import List, Optional
 
 
 # ---------------------------
-# 🔍 ANALYSIS OUTPUT
+#  ANALYSIS OUTPUT
 # ---------------------------
 class Analysis(BaseModel):
     issues: List[str] = Field(default_factory=list)
@@ -12,7 +12,7 @@ class Analysis(BaseModel):
 
 
 # ---------------------------
-# 🔧 REFACTOR OUTPUT
+#  REFACTOR OUTPUT
 # ---------------------------
 class Refactor(BaseModel):
     code: str = ""
@@ -21,7 +21,7 @@ class Refactor(BaseModel):
 
 
 # ---------------------------
-# 🧪 TEST OUTPUT
+#  TEST OUTPUT
 # ---------------------------
 class TestCases(BaseModel):
     unit_tests: List[str] = Field(default_factory=list)
@@ -29,22 +29,18 @@ class TestCases(BaseModel):
 
 
 # ---------------------------
-# ✅ VALIDATION OUTPUT
+#  VALIDATION OUTPUT
 # ---------------------------
-# class Validation(BaseModel):
-#     is_valid: bool = False
-#     confidence: float = 0.0
-#     errors: List[str] = Field(default_factory=list)
     
 class Validation(BaseModel):
     is_valid: bool = False
     confidence: float = 0.0
     errors: List[str] = Field(default_factory=list)
-    warnings: List[str] = Field(default_factory=list)   # 🔥 NEW
+    warnings: List[str] = Field(default_factory=list)   #   NEW
 
 
 # ---------------------------
-# 🧠 GLOBAL STATE
+#  GLOBAL STATE
 # ---------------------------
 class AgentState(BaseModel):
     query: str

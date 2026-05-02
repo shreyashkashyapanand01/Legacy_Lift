@@ -11,7 +11,7 @@ class ExplanationBuilder:
             explanations = []
 
             # ---------------------------
-            # 🔹 MODIFIED
+            #   MODIFIED
             # ---------------------------
             for change in diff.get("modified", []):
                 old = change.get("from", "")
@@ -22,7 +22,7 @@ class ExplanationBuilder:
                 )
 
             # ---------------------------
-            # 🔹 ADDED
+            #   ADDED
             # ---------------------------
             for line in diff.get("added", []):
                 if ExplanationBuilder._is_noise(line):
@@ -35,7 +35,7 @@ class ExplanationBuilder:
                 })
 
             # ---------------------------
-            # 🔹 REMOVED
+            #   REMOVED
             # ---------------------------
             for line in diff.get("removed", []):
                 if ExplanationBuilder._is_noise(line):
@@ -54,14 +54,14 @@ class ExplanationBuilder:
             return []
 
     # ---------------------------
-    # 🔍 SMART ANALYSIS
+    #   SMART ANALYSIS
     # ---------------------------
     @staticmethod
     def _analyze_change(old: str, new: str):
         old_clean = old.replace(" ", "")
         new_clean = new.replace(" ", "")
 
-        # 🔹 formatting only
+        #   formatting only
         if old_clean == new_clean:
             return {
                 "change": "Code formatting improvement",
@@ -69,7 +69,7 @@ class ExplanationBuilder:
                 "type": "formatting"
             }
 
-        # 🔹 overflow handling
+        #   overflow handling
         if "Math." in new and "Exact" in new:
             return {
                 "change": "Added overflow-safe operation",
@@ -77,7 +77,7 @@ class ExplanationBuilder:
                 "type": "safety"
             }
 
-        # 🔹 condition added
+        #   condition added
         if "if" in new and "if" not in old:
             return {
                 "change": "Added conditional check",
@@ -85,7 +85,7 @@ class ExplanationBuilder:
                 "type": "logic"
             }
 
-        # 🔹 fallback
+        #   fallback
         return {
             "change": "Updated logic implementation",
             "impact": "Improves correctness or performance",
@@ -93,7 +93,7 @@ class ExplanationBuilder:
         }
 
     # ---------------------------
-    # 🔍 NOISE FILTER
+    #   NOISE FILTER
     # ---------------------------
     @staticmethod
     def _is_noise(line: str):
@@ -101,7 +101,7 @@ class ExplanationBuilder:
         return line in {"{", "}", ";"} or not line
 
     # ---------------------------
-    # 🔍 SMART SUMMARY
+    #   SMART SUMMARY
     # ---------------------------
     @staticmethod
     def _summarize_line(line: str):

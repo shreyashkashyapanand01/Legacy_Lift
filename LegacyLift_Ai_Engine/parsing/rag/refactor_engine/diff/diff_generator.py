@@ -64,7 +64,7 @@ class DiffGenerator:
             return {"added": [], "removed": [], "modified": []}
 
     # ---------------------------
-    # 🔍 FILTER NOISE
+    #   FILTER NOISE
     # ---------------------------
     @staticmethod
     def _is_meaningful(line: str) -> bool:

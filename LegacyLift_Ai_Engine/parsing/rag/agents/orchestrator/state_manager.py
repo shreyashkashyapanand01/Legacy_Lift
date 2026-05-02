@@ -17,7 +17,7 @@ class StateManager:
         return state
 
     # ---------------------------
-    # 🔹 UPDATE METHODS
+    #  UPDATE METHODS
     # ---------------------------
     @staticmethod
     def update_analysis(state: AgentState, analysis):
@@ -56,7 +56,7 @@ class StateManager:
         return state
 
     # ---------------------------
-    # 🔹 RETRY HANDLING
+    #  RETRY HANDLING
     # ---------------------------
     @staticmethod
     def increment_retry(state: AgentState):

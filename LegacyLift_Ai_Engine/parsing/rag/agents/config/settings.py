@@ -6,7 +6,7 @@ load_dotenv()
 
 class Settings:
     # ---------------------------
-    # 🔹 LLM CONFIG
+    #   LLM CONFIG
     # ---------------------------
     LLM_PROVIDER = os.getenv("LLM_PROVIDER", "openai").lower()
     LLM_MODEL = os.getenv("LLM_MODEL", "gpt-4o-mini")
@@ -18,11 +18,11 @@ class Settings:
     TEMPERATURE = float(os.getenv("LLM_TEMPERATURE", 0.2))
 
     # ---------------------------
-    # 🔹 SYSTEM CONFIG
+    #   SYSTEM CONFIG
     # ---------------------------
     MAX_RETRIES = int(os.getenv("MAX_RETRIES", 2))
 
     # ---------------------------
-    # 🔹 DEBUG
+    #   DEBUG
     # ---------------------------
     DEBUG = os.getenv("DEBUG", "false").lower() == "true"

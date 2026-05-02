@@ -7,7 +7,7 @@ logger = logging.getLogger(__name__)
 class TestInjector:
 
     # ---------------------------
-    # 🚀 MAIN ENTRY
+    #  MAIN ENTRY
     # ---------------------------
     @staticmethod
     def parse_tests(tests: dict):
@@ -30,14 +30,14 @@ class TestInjector:
             return []
 
     # ---------------------------
-    # 🔍 SINGLE TEST PARSER
+    #  SINGLE TEST PARSER
     # ---------------------------
     @staticmethod
     def _parse_single_test(test_str: str):
         test_str = test_str.strip()
 
         # ---------------------------
-        # 🧪 RETURN TEST
+        #  RETURN TEST
         # Example:
         # multiply(2, 3) returns 6
         # ---------------------------
@@ -62,7 +62,7 @@ class TestInjector:
             }
 
         # ---------------------------
-        # ⚠️ EXCEPTION TEST
+        #  EXCEPTION TEST
         # Example:
         # multiply(Integer.MAX_VALUE, 2) throws ArithmeticException
         # ---------------------------
@@ -89,7 +89,7 @@ class TestInjector:
         return None
 
     # ---------------------------
-    # 🔢 INPUT PARSER
+    #  INPUT PARSER
     # ---------------------------
     @staticmethod
     def _parse_inputs(input_str: str):
@@ -102,7 +102,7 @@ class TestInjector:
         return inputs
 
     # ---------------------------
-    # 🔢 VALUE PARSER
+    #  VALUE PARSER
     # ---------------------------
     @staticmethod
     def _parse_value(value: str):

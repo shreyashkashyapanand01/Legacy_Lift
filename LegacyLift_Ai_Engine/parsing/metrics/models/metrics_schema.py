@@ -3,7 +3,7 @@ from typing import List
 
 
 # ---------------------------
-# 🔹 HALSTEAD
+#  HALSTEAD
 # ---------------------------
 class HalsteadMetrics(BaseModel):
     volume: float
@@ -12,7 +12,7 @@ class HalsteadMetrics(BaseModel):
 
 
 # ---------------------------
-# 🔹 FEATURE SET
+#  FEATURE SET
 # ---------------------------
 class CodeFeatures(BaseModel):
     complexity: int
@@ -23,7 +23,7 @@ class CodeFeatures(BaseModel):
 
 
 # ---------------------------
-# 🔹 COMPARISON
+#  COMPARISON
 # ---------------------------
 class MetricsComparison(BaseModel):
     complexity_reduction: float
@@ -36,7 +36,7 @@ class MetricsComparison(BaseModel):
 
 
 # ---------------------------
-# 🔹 QUALITY SCORE
+#  QUALITY SCORE
 # ---------------------------
 class QualityScore(BaseModel):
     before: float
@@ -45,7 +45,7 @@ class QualityScore(BaseModel):
 
 
 # ---------------------------
-# 🔹 ANALYSIS
+#  ANALYSIS
 # ---------------------------
 class MetricsAnalysis(BaseModel):
     summary: str
@@ -56,7 +56,7 @@ class MetricsAnalysis(BaseModel):
 
 
 # ---------------------------
-# 🔹 FINAL METRICS OBJECT
+#  FINAL METRICS OBJECT
 # ---------------------------
 class MetricsResult(BaseModel):
     before: CodeFeatures

@@ -14,7 +14,7 @@ class ValidatorAgent:
         self.prompt_template = self._load_prompt()
 
     # ---------------------------
-    # 🔹 LOAD PROMPT
+    #  LOAD PROMPT
     # ---------------------------
     def _load_prompt(self):
         try:
@@ -29,7 +29,7 @@ class ValidatorAgent:
             raise RuntimeError("Prompt loading failed")
 
     # ---------------------------
-    # 🔹 BUILD PROMPT
+    #  BUILD PROMPT
     # ---------------------------
     def _build_prompt(self, state: AgentState):
         code = state.refactor.code if state.refactor else state.context
@@ -44,7 +44,7 @@ class ValidatorAgent:
         )
 
     # ---------------------------
-    # 🔹 SAFE PARSE
+    #  SAFE PARSE
     # ---------------------------
     def _safe_parse(self, text: str) -> Validation:
         import json
@@ -56,7 +56,7 @@ class ValidatorAgent:
                 is_valid=data.get("is_valid", False),
                 confidence=float(data.get("confidence", 0.0)),
                 errors=data.get("errors", []),
-                warnings=data.get("warnings", [])   # 🔥 NEW
+                warnings=data.get("warnings", [])   #  NEW
             )
 
         except Exception:
@@ -70,7 +70,7 @@ class ValidatorAgent:
             )
 
     # ---------------------------
-    # 🚀 MAIN RUN
+    #  MAIN RUN
     # ---------------------------
     def run(self, state: AgentState) -> AgentState:
         try:
@@ -93,7 +93,7 @@ class ValidatorAgent:
                 is_valid=False,
                 confidence=0.0,
                 errors=["Validator failed"],
-                warnings=[]   # 🔥 IMPORTANT
+                warnings=[]   #  IMPORTANT
             )
 
             return state

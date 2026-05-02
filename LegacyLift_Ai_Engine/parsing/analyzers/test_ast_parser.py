@@ -46,6 +46,6 @@ except Exception as e:
     logger.exception("Pipeline failed")
 
 finally:
-    # 🔥 OPTIONAL: comment this during debugging
+    #  OPTIONAL: comment this during debugging
     # cleanup_workspace(job_id)
     pass
